@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +9,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="384.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
@@ -21,11 +24,11 @@
                   <Image url="@../../Imagens/SonicPanel.png" />
                </image>
             </ImageView>
-            <Pane layoutX="59.0" layoutY="320.0" prefHeight="85.0" prefWidth="288.0" styleClass="PanelCalc">
+            <Pane layoutX="33.0" layoutY="330.0" prefHeight="85.0" prefWidth="340.0" styleClass="PanelCalc">
                <children>
-                  <Label fx:id="labelResultado" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="19.0" prefHeight="48.0" prefWidth="271.0" text="0" textFill="WHITE">
+                  <Label fx:id="labelResultado" alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="-27.0" prefHeight="140.0" prefWidth="340.0" text="0" textFill="WHITE" wrapText="true">
                      <font>
-                        <Font name="Footlight MT Light" size="45.0" />
+                        <Font size="36.0" />
                      </font>
                   </Label>
                </children>
@@ -39,10 +42,9 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="paneBtnMode" layoutX="132.0" prefHeight="116.0" prefWidth="126.0">
+            <Pane fx:id="paneBtnMode" layoutX="154.0" layoutY="28.0" prefHeight="73.0" prefWidth="80.0">
                <children>
-                  <Button fx:id="btnMode" layoutX="50.0" layoutY="42.0" mnemonicParsing="false" onAction="#changeMode" styleClass="secondary-color" stylesheets="@../../styles/DarkMode.css" />
-                  <ImageView fx:id="imgMode" fitHeight="65.0" fitWidth="55.0" layoutX="39.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgMode" fitHeight="65.0" fitWidth="55.0" layoutX="13.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Imagens/dark.png" />
                      </image>
@@ -84,16 +86,32 @@
                   <Image url="@../../Imagens/Minimizar.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnAslovin" fitHeight="52.0" fitWidth="89.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Imagens/IconSonic.png" />
+                  <Image url="@../../Imagens/iconAslovinPNG.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="260.0" layoutX="55.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Imagens/Sonic.png" />
-               </image>
-            </ImageView>
+            <Text layoutX="69.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="McLovin X Asta Calculator" wrappingWidth="263.443359375">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.17640000581741333" green="0.29016000032424927" blue="0.8399999737739563" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7236841917037964" green="0.08454150706529617" blue="0.07370857894420624" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Calibri Bold Italic" size="24.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

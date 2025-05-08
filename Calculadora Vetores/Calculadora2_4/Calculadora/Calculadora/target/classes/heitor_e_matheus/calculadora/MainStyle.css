@@ -4,7 +4,6 @@
 }
 
 .MainPanel{
--fx-background-color: linear-gradient(to bottom right, #191970, #FF6347,#FFE4B5);
     -fx-background-radius: 15 15 25 25;
 }
 

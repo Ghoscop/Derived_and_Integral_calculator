@@ -11,7 +11,7 @@ module heitor_e_matheus.calculadora {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.media;
-    requires matheclipse.core;
+//    requires matheclipse.core;
 
     opens heitor_e_matheus.calculadora to javafx.fxml;
     exports heitor_e_matheus.calculadora;
