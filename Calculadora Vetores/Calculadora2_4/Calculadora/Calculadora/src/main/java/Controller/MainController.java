@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Calculadora;
+import Model.CalculadoraPolinomial;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -10,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaPlayer;
 
@@ -22,7 +24,7 @@ public class MainController {
     private MediaPlayer mediaPlayer;
 
     @FXML
-    private Pane paneTitulo;
+    private Pane paneTitulo, paneBtnMode;
     @FXML
     private Label labelResultado;
     @FXML
@@ -30,7 +32,7 @@ public class MainController {
     @FXML
     private ChoiceBox<String> escolha;
     @FXML
-    private ImageView btnFechar, btnMinimizar;
+    private ImageView btnFechar, btnMinimizar,btnAslovin;
     @FXML
     private ImageView imgMode;
     @FXML
@@ -50,6 +52,9 @@ public class MainController {
     public void inicio(Stage stage, MediaPlayer mediaPlayer) {
         this.mediaPlayer = mediaPlayer;
 
+        setDarkMode();
+        changeMode();
+
         System.out.println("Iniciando o controlador");
         stage.setTitle("Sonic Calculator");
         stage.setResizable(false);
@@ -64,6 +69,11 @@ public class MainController {
             stage.setY(mouseEvent.getScreenY() - y);
         });
 
+        btnAslovin.setOnMouseClicked(mouseEvent -> {
+
+        });
+
+
         btnFechar.setOnMouseClicked(mouseEvent -> stage.close());
         btnMinimizar.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
 
@@ -72,13 +82,33 @@ public class MainController {
     }
 
     @FXML
-    public void changeMode(ActionEvent event) {
-        isLightMode = !isLightMode;
-        if (isLightMode) {
-            setLightMode();
-        } else {
-            setDarkMode();
-        }
+    public void changeMode() {
+        paneBtnMode.setOnMouseClicked(mouseEvent -> {
+            isLightMode = !isLightMode;
+            String path;
+            Media media;
+
+            if (isLightMode) {
+                path = getClass().getResource("/Songs/McLovinsong.mp3").toExternalForm();
+                mediaPlayer.setVolume(100);
+                setLightMode();
+            } else {
+                path = getClass().getResource("/Songs/lol.mp3").toExternalForm();
+                mediaPlayer.setVolume(0.4);
+                setDarkMode();
+            }
+
+            media = new Media(path);
+
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
+
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.play();
+        });
+
     }
 
     @FXML
@@ -89,7 +119,7 @@ public class MainController {
         Image image = new Image(getClass().getResource("/Imagens/dark.png").toExternalForm());
         imgMode.setImage(image);
 
-        Image fundoImage = new Image(getClass().getResource("/Imagens/SonicPanel.png").toExternalForm());
+        Image fundoImage = new Image(getClass().getResource("/Imagens/Mclovin.png").toExternalForm());
         fundoPane.setStyle("-fx-background-image: url('" + fundoImage.getUrl() + "'); -fx-background-size: cover;");
     }
 
@@ -101,29 +131,8 @@ public class MainController {
         Image image = new Image(getClass().getResource("/Imagens/light.png").toExternalForm());
         imgMode.setImage(image);
 
-        Image fundoImage = new Image(getClass().getResource("/Imagens/mygod.png").toExternalForm());
+        Image fundoImage = new Image(getClass().getResource("/Imagens/Asta.png").toExternalForm());
         fundoPane.setStyle("-fx-background-image: url('" + fundoImage.getUrl() + "'); -fx-background-size: cover;");
-    }
-
-    // Função para capturar coordenadas
-    @FXML
-    private void capturarnumero(MouseEvent event) {
-        try {
-            // Em vez de pegar o texto de labelResultado, capturamos diretamente os valores dos campos de texto
-            if (fase == 0) {
-                double numero = Double.parseDouble(tfNumero.getText().trim());  // Captura o valor
-                valor.add(numero);
-                fase++;
-            }
-
-            if (fase == 1) {
-                labelResultado.setText("Escolha uma operação e clique em Calcular");
-                System.out.println("Todas as coordenadas capturadas: " + valor);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Erro: valor inválido");
-            labelResultado.setText("Erro: Insira um número válido");
-        }
     }
 
     @FXML
@@ -131,16 +140,13 @@ public class MainController {
         String simbolo = ((Pane) event.getSource()).getId().replace("btn", "");
 
         if (simbolo.equals("Igual")) {
-            // Verifica se todos os campos de coordenada estão preenchidos
             if (!tfNumero.getText().isEmpty()) {
-                String expressao = tfNumero.getText().trim();  // Captura a expressão digitada pelo usuário
+                String expressao = tfNumero.getText().trim();
 
-                // Passa a expressão simbólica para a calculadora
                 calculadora.setFuncao(expressao);
                 System.out.println("Iniciando cálculo: opção selecionada - " + escolha.getValue());
                 realizarCalculo();
             } else {
-                // Se algum campo estiver vazio
                 System.out.println("Erro:  está incompleta");
                 labelResultado.setText("Complete a função!");
             }
@@ -162,6 +168,7 @@ public class MainController {
         }
 
         labelResultado.setText(resultado);
+        System.out.println(resultado);
 
     }
 }
