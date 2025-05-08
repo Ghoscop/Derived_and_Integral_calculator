@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="matheclipse-core-3.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../symja_java11-v3.0.0/symja_java11-v3.0.0/lib/matheclipse-core-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
