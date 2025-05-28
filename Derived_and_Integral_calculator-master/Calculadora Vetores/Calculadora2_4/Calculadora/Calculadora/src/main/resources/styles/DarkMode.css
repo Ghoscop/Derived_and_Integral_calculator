@@ -1,0 +1,13 @@
+.primary-color{
+  -fx-background-color: #383838;
+}
+
+.secondary-color{
+  -fx-background-color: linear-gradient(to bottom right, #000000, #701d1d, #2b0a0a);
+  -fx-background-radius: 15 15 25 25;
+}
+
+.round-border{
+  -fx-btnMode-color: #282828;
+  -fx-background-radius: 15 15 25 25;
+}

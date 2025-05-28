@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="384.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <Pane fx:id="fundoPane" layoutX="5.0" layoutY="30.0" prefHeight="563.0" prefWidth="390.0" styleClass="secondary-color" stylesheets="@../../styles/DarkMode.css">
+         <children>
+            <ImageView fx:id="changeImg" cache="true" fitHeight="554.0" fitWidth="495.0" layoutX="-45.0" layoutY="3.0" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../Imagens/SonicPanel.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="33.0" layoutY="330.0" prefHeight="85.0" prefWidth="340.0" styleClass="PanelCalc">
+               <children>
+                  <Label fx:id="labelResultado" alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="-27.0" prefHeight="140.0" prefWidth="340.0" text="0" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="btnIgual" layoutX="272.0" layoutY="178.0" onMouseClicked="#noSinal" prefHeight="80.0" prefWidth="80.0" styleClass="PanelCalc">
+               <children>
+                  <Label fx:id="labelResultadoIgual" layoutX="24.0" layoutY="11.0" text="=" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneBtnMode" layoutX="154.0" layoutY="28.0" prefHeight="73.0" prefWidth="80.0">
+               <children>
+                  <ImageView fx:id="imgMode" fitHeight="65.0" fitWidth="55.0" layoutX="13.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/dark.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ChoiceBox fx:id="escolha" layoutX="22.0" layoutY="190.0" prefHeight="43.0" prefWidth="218.0" styleClass="PanelCalc">
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ChoiceBox>
+            <Label fx:id="labelX1" layoutX="35.0" layoutY="119.0" prefHeight="36.0" prefWidth="45.0" text="F(X)" textFill="WHITE">
+               <font>
+                  <Font name="Footlight MT Light" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfNumero" layoutX="86.0" layoutY="118.0" prefHeight="39.0" prefWidth="281.0" promptText="0" styleClass="PanelCalc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane fx:id="paneTitulo" layoutX="-5.0" prefHeight="52.0" prefWidth="407.0">
+         <children>
+            <ImageView fx:id="btnFechar" accessibleText="Fechar" fitHeight="25.0" fitWidth="25.0" layoutX="362.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/fechar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnMinimizar" accessibleText="minimizar" fitHeight="25.0" fitWidth="25.0" layoutX="337.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/Minimizar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnAslovin" fitHeight="52.0" fitWidth="89.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/iconAslovinPNG.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="69.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="McLovin X Asta Calculator" wrappingWidth="263.443359375">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.17640000581741333" green="0.29016000032424927" blue="0.8399999737739563" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7236841917037964" green="0.08454150706529617" blue="0.07370857894420624" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Calibri Bold Italic" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
